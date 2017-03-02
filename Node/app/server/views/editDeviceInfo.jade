@@ -1,0 +1,39 @@
+
+// preset form values if we receive a userdata object //
+- device = typeof(deviceData) != 'undefined' ? deviceData : { }
+// store the userId on the client side in a hidden input field //
+
+.content
+    .jumbotron.content-left
+        h2 Update Device
+        form#updateDevicerForm.form-horizontal(method='post', action='/deviceSave')
+            .form-group
+                label.col-lg-2.control-label Device Hostname
+                .col-lg-6
+                    input.form-control(type='text', name='deviceHostName', value=device.deviceHostName)
+            .form-group
+                label.col-lg-2.control-label Device IP
+                .col-lg-6
+                    input.form-control(type='text', name='deviceIp', value=device.deviceIp)
+            .form-group
+                label.col-lg-2.control-label Device Type
+                .col-lg-6
+                    input.form-control(type='text', name='deviceType', value=device.deviceType)                    
+            .form-group
+                label.col-lg-2.control-label Device ID (Blockchain Generated)
+                .col-lg-6
+                    input.form-control(type='text', name='deviceId', value=device.deviceId, disabled=true)
+                    input.form-control(type='hidden', name='deviceId', value=device.deviceId)
+            .form-group
+                label.col-lg-2.control-label Device Description
+                .col-lg-6
+                    input.form-control(type='text', name='deviceDescription', value=device.deviceDescription)
+            .form-group
+                label.col-lg-2.control-label Device Owner
+                .col-lg-6
+                    input.form-control(type='text', name='deviceOwner', value=device.deviceOwner)
+            
+            .form-group
+                .col-lg-9.col-lg-offset-2
+                    button#DeviceCancel.btn.btn-default(type='button') Cancel
+                    button.btn.btn-primary(type='submit', value='update') Update

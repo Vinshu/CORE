@@ -1,0 +1,87 @@
+.content
+    .jumbotron.content-left
+        h4 DashBoard
+        .row
+            #idb1.dashboard-info-box
+                .col-md-6
+                    .info-box.object-user-bg
+                        span.info-box-icon
+                            i.fa.fa-user
+                        a(href='/users')                            
+                            .info-box-content
+                                span.info-box-text Users
+                                span.info-box-number #{usersCount}  
+            #idb2.dashboard-info-box
+                .col-md-6
+                    .info-box.object-org-bg
+                        span.info-box-icon
+                            i.fa.fa-television
+                        a(href='/devices')                            
+                            .info-box-content
+                                span.info-box-text Devices
+                                span.info-box-number #{devicesCount} 
+        <br>
+        .row
+            #idb3.dashboard-info-box
+                .col-md-6
+                    .info-box.object-service-bg
+                        span.info-box-icon
+                            i.fa.fa-database
+                        a(href='/resources')                             
+                            .info-box-content
+                                span.info-box-text Resources
+                                span.info-box-number #{resourcesCount}
+            #idb4.dashboard-info-box
+                .col-md-6
+                    .info-box.object-resource-bg
+                        span.info-box-icon
+                            i.fa.fa-pencil
+                        a(href='/rules')                             
+                            .info-box-content
+                                span.info-box-text Policies
+                                span.info-box-number #{rulesCount}
+        <br>
+        .row
+            .col-md-6
+                div
+                    .box.object-user-box
+                        .box-header.with-border
+                            i.object-user-box
+                                h3.box-title Block Chain info
+                        .box-body
+                            table.table.table-bordered.table-striped
+                                tbody
+                                    tr 
+                                        td Url 
+                                        td(style='word-wrap: break-word;min-width: 160px;max-width: 160px;') #{bcUrl}  
+                                    tr 
+                                        td Output Response
+                                        td(style='word-wrap: break-word;min-width: 160px;max-width: 160px;') #{bcResp}
+                                    tr 
+                                        td Status
+                                        td #{bcStatus}
+                                        
+            .col-md-6
+                div
+                    .box.object-resource-box
+                        .box-header.with-border
+                            i.object-user-box
+                                h3.box-title Network Info 
+                        .box-body
+                            div
+                                table#idb7.table.table-striped.table-condensed.table-bordered
+                                    if networkNodes.length > 0
+                                        thead
+                                            tr
+                                                th Available Nodes
+                                        tbody
+                                            each node in networkNodes
+                                                tr  
+                                                    td #{node}
+                                    else
+                                        No Network Data is not available
+                                                
+
+                                    
+
+      

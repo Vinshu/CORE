@@ -1,0 +1,34 @@
+
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+.content
+    .jumbotron.content-left
+        h3 Create Device
+        form#createDeviceForm.form-horizontal(method='post', action='/createDevice')
+            .form-group
+                label.col-lg-2.control-label Device Hostname
+                .col-lg-6
+                    input.form-control(type='text', name='deviceHostName')
+            .form-group
+                label.col-lg-2.control-label Device IP
+                .col-lg-6
+                    input.form-control(type='text', name='deviceIp')
+            .form-group
+                label.col-lg-2.control-label Device Type
+                .col-lg-6
+                    input.form-control(type='text', name='deviceType')                    
+            .form-group
+                label.col-lg-2.control-label Device Description
+                .col-lg-6
+                    input.form-control(type='text', name='deviceDescription')
+            .form-group
+                label.col-lg-2.control-label Device Owner
+                .col-lg-6
+                    input.form-control(type='text', name='deviceOwner')
+            
+            .form-group
+                .col-lg-9.col-lg-offset-2
+                    button.btn.btn-primary(type='submit', value='create') Create

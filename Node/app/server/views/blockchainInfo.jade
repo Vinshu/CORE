@@ -1,0 +1,27 @@
+
+.content
+  .jumbotron.content-left
+    h3 Blockchain  
+    table.table.table-bordered.table-striped
+      tbody
+        tr
+          td Url 
+          td #{url}  
+        tr 
+          td Output Response
+          td(style='word-wrap: break-word;min-width: 160px;max-width: 160px;') #{resp}
+        tr 
+          td Status
+          td #{status}
+    h4 Please enter the block code in below text box and click submit to see the response.
+    .form-group
+        label.control-label.col-sm-2 Block Code
+        .col-sm-1
+          input.form-control#block-tf(type='text', name='blockCode')
+        .col-sm-3
+          input.btn.btn-info(id ="blockSubmit", type='button', value='submit')
+    
+        
+    #content
+    #content1
+

@@ -1,0 +1,22 @@
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+//input(type='hidden', value= user._id)#userId
+
+.content
+    .jumbotron.content-left
+        h4 Please enter the user name you want to verify.
+        <br>
+        .form-group
+            label.control-label.col-sm-2 Logined User Name
+            .col-sm-4
+                input.form-control#user-tf(type='text', style='width: 180px;',name='UserTokenCode',value=user.username, disabled=true)
+            label.control-label.col-sm-1 Verify
+            .col-sm-2
+                input.form-control#validate-tf(type='text',  style='width: 120px;',name='TokenCode')
+            .col-sm-1
+                input.btn.btn-info(id ="validateSubmit", type='button', value='Confirm')
+
+        #content
+        #content1
+

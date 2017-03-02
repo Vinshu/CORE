@@ -1,0 +1,65 @@
+
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+.content
+    .jumbotron.content-left
+        form(method="post", action='/save')#account-form.form-horizontal.well
+            h3 Account settings
+            h6#sub1 Please tell us a little about yourself.
+            hr
+            .form-group
+                label.col-lg-2.control-label Full Name
+                .col-lg-3
+                    input.form-control#firstName-tf(type='text', name='firstName', value=user.firstName)
+                .col-lg-3
+                    input.form-control#lastName-tf(type='text', name='lastName',  value=user.lastName)
+            .form-group
+                label.col-lg-2.control-label User ID
+                .col-lg-6
+                    input.form-control(type='text', name='username', value=user.username, disabled=true )
+                    input.form-control(type='hidden', name='username', value=user.username)
+            .form-group
+                label.col-lg-2.control-label Password
+                .col-lg-6
+                    input.form-control(type='password', name='password', value=user.password)
+            .form-group
+                label.col-lg-2.control-label Confirm password
+                .col-lg-6
+                    input.form-control(type='password', name='confirmPassword', value=user.password) 
+            .form-group
+                label.col-lg-2.control-label Biometric ID
+                .col-lg-6
+                    input.form-control(type='text', name='biometricId',  value= user.biometricId, disabled=true)
+                    input.form-control(type='hidden', name='biometricId', value=user.biometricId)
+            .form-group
+                label.col-lg-2.control-label Role
+                .col-sm-6
+                    input.form-control(type='text', name='role', value=user.role, disabled=true ) 
+                    input.form-control(type='hidden', name='role', value=user.role)
+            .form-group
+                label.col-lg-2.control-label Email
+                .col-sm-6
+                    input.form-control(type='text', name='email', value= user.email)
+            .form-group
+                label.col-lg-2.control-label Blockchain ID
+                .col-lg-6
+                    input.form-control(type='text', name='blockChainId',value= user.blockChainId, disabled=true)
+                    input.form-control(type='hidden', name='blockChainId', value=user.blockChainId)
+            .form-group
+                label.col-lg-2.control-label Department
+                .col-lg-6
+                    input.form-control(type='text', name='department', value= user.department, disabled=true)
+                    input.form-control(type='hidden', name='department', value=user.department)
+                    input.form-control(type='hidden', name='description', value= user.description)
+
+            .form-group
+                .col-lg-9.col-lg-offset-2
+                    button#account-form-btn1.btn.btn-default(type='button') Cancel
+                    button#account-form-btn2.btn.btn-primary(type='submit', value='update') Update
+            .clearfix
+
+// display form errors in a custom modal window //
+include modals/form-errors

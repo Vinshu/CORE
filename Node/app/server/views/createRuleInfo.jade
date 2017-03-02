@@ -1,0 +1,50 @@
+
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+.content
+    .jumbotron.content-left
+        h3 Create Rule
+        form#createRuleForm.form-horizontal(method='post', action='/createRule')
+            .form-group
+                label.col-lg-2.control-label Rule Number
+                .col-lg-6
+                    input.form-control(type='text', name='ruleNumber', value=ruleId, disabled=true)
+                    input.form-control(type='hidden', name='ruleNumber', value=ruleId)
+            .form-group
+                label.col-lg-2.control-label Rule Name
+                .col-lg-6
+                    input.form-control(type='text', name='ruleName')
+            .form-group
+                label.col-lg-2.control-label UserID / DeviceID
+                .col-lg-6
+                    select.form-control(name='mappedId')
+                        each mapId in mapIds
+                            option(selected=mapId == user.mapId)= mapId   
+            .form-group
+                label.col-lg-2.control-label Blockchain Id
+                .col-lg-6
+                    input#bcID.form-control(type='text',name='blockChainId', disabled='')
+                    input#bcID1.form-control(type='hidden', name='blockChainId')					
+            .form-group
+                label.col-lg-2.control-label Resource IP
+                .col-lg-6
+                    select.form-control(name='resourceIp')
+                        each resource in resourceIps
+                            option(selected=resource == user.resource)= resource
+            .form-group
+                label.col-lg-2.control-label Access
+                .col-lg-6
+                    select.form-control(name='access')
+                        each access in accessList
+                            option(selected=access == user.access)= access
+            .form-group
+                label.col-lg-2.control-label Comments
+                .col-lg-6
+                    input.form-control(type='text', name='comments')
+            
+            .form-group
+                .col-lg-9.col-lg-offset-2
+                    button.btn.btn-primary(type='submit', value='create') Create

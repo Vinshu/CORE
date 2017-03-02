@@ -1,0 +1,25 @@
+.content
+    .jumbotron.content-left
+        h3 Logs 
+        table.table.table-bordered.table-striped
+            if logs.length > 0
+                thead
+                    tr
+                        th UserName
+                        th Resource IP
+                        th UserId/ DeviceId
+                        th Auth
+                        th Date Created
+                tbody
+                    each log in logs
+                        tr
+                            td #{log.username}
+                            td #{log.resourceIp}
+                            td #{log.mappedId || "Don't mapped with any rule"}
+                            td #{log.auth}
+                            td #{log.date}
+                            
+            else
+                No Logs Data is not available
+    
+    

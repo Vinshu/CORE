@@ -1,0 +1,32 @@
+.content
+    .jumbotron.content-left
+        h3 Rules
+        table.table.table-bordered.table-striped
+            if rules.length > 0
+                thead
+                    tr
+                        th Rule Number
+                        th Rule Name
+                        th UserID / DeviceID
+                        th Resource IP
+                        th Access
+                        th Comments
+                        th Settings
+                tbody
+                    each rule in rules
+                        tr
+                            td #{rule.ruleNumber}
+                            td #{rule.ruleName}
+                            td #{rule.mappedId}
+                            td #{rule.resourceIp}
+                            td #{rule.access}
+                            td #{rule.comments}
+                            td 
+                                a(href='/rule/#{rule._id}')
+                                    span.glyphicon.glyphicon-edit
+                                a(href='/deleteRule/#{rule._id}')
+                                    span.glyphicon.glyphicon-remove
+            else
+                No Rules Data is not available
+    
+    

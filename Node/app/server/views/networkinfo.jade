@@ -1,0 +1,19 @@
+
+.content
+ .jumbotron.content-left
+  h3 Network 
+  table.table.table-bordered.table-striped
+   thead
+    tr Assigned Node
+     td Node 0 : #{assignedNode}
+  table.table.table-bordered.table-striped
+   thead
+    tr Other Avaiable Nodes
+   if address.length > 0
+     each add, index in address
+      tr
+       td Node #{index+1} : #{add} 
+    else
+        No Nodes Data is not available
+    
+    

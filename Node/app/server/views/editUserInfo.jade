@@ -1,0 +1,59 @@
+
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', name='id' value= user._id)#userId
+
+.content
+    .jumbotron.content-left
+        h2 Update User
+        form#updateUserForm.form-horizontal(method='post', action='/save')
+            .form-group
+                label.col-lg-2.control-label Full Name
+                .col-lg-3
+                    input.form-control(type='text', name='firstName', value=user.firstName)
+                .col-lg-3
+                    input.form-control(type='text', name='lastName',  value=user.lastName)
+            .form-group
+                label.col-lg-2.control-label User ID
+                .col-lg-6
+                    input.form-control(type='text', name='username', value=user.username, disabled=true )
+                    input.form-control(type='hidden', name='username', value=user.username)
+            .form-group
+                label.col-lg-2.control-label Password
+                .col-lg-6
+                    input.form-control(type='password', name='password', value=user.password)
+            .form-group
+                label.col-lg-2.control-label Confirm password
+                .col-lg-6
+                    input.form-control(type='password', name='confirmPassword', value=user.password) 
+            .form-group
+                label.col-lg-2.control-label Biometric ID
+                .col-lg-6
+                    input.form-control(type='text', name='biometricId',  value= user.biometricId)
+            .form-group
+                label.col-lg-2.control-label Role
+                .col-sm-6
+                    select.form-control(name='role')
+                        each role in roles
+                            option(selected=role == user.role)= role
+            .form-group
+                label.col-lg-2.control-label Email
+                .col-sm-6
+                    input.form-control(type='text', name='email', value= user.email)
+            .form-group
+                label.col-lg-2.control-label Blockchain ID
+                .col-lg-6
+                    input.form-control(type='text', name='blockChainId',value= user.blockChainId, disabled=true)
+            .form-group
+                label.col-lg-2.control-label Department
+                .col-lg-6
+                    input.form-control(type='text', name='department', value= user.department)
+            .form-group
+                label.col-lg-2.control-label User Description
+                .col-lg-6
+                    input.form-control(type='text', name='description', value= user.description)
+            .form-group
+                .col-lg-9.col-lg-offset-2
+                    button#editCancel.btn.btn-default(type='button') Cancel
+                    button.btn.btn-primary(type='submit', value='update') Update

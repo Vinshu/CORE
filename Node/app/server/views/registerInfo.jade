@@ -1,0 +1,32 @@
+
+.content
+    .jumbotron.content-left
+        h4 
+            text You have successfully logged-in to Blockchain network
+            br
+        h4 
+            text You are registered with following peer
+            td #{iurl}
+                br
+                br
+        h4 Request Details 
+        
+        table.table.table-bordered.table-striped
+            tbody
+                tr
+                    td Url 
+                    td #{iurl}  
+                tr 
+                    td Input Request
+                    td #{ipReq}
+                    br
+        h4 Response Details
+        
+        table.table.table-bordered.table-striped
+            tbody
+                tr
+                    td Output Response
+                    td #{opRes}
+                tr
+                    td Status
+                    td #{status}

@@ -1,0 +1,32 @@
+.content
+    .jumbotron.content-left
+        h3 Devices
+        table.table.table-bordered.table-striped
+            if devices.length > 0
+                thead
+                    tr
+                        th Device Hostname
+                        th Device IP
+                        th Device Type
+                        th BlockchainId
+                        th Device Description
+                        th Device Owner
+                        th Settings
+                tbody
+                    each device in devices
+                        tr
+                            td #{device.deviceHostName}
+                            td #{device.deviceIp}
+                            td #{device.deviceType}
+                            td #{device.blockChainId}
+                            td #{device.deviceDescription}
+                            td #{device.deviceOwner}
+                            td 
+                                a(href='/device/#{device._id}')
+                                    span.glyphicon.glyphicon-edit
+                                a(href='/deleteDevice/#{device._id}')
+                                    span.glyphicon.glyphicon-remove
+            else
+                No Devices Data is not available
+    
+    

@@ -1,0 +1,38 @@
+.content
+    .jumbotron.content-left
+        h3 Resources
+        -if(errorMessage)
+            div.alert.alert-danger #{errorMessage}
+        -if(error_messages)
+            div.alert.alert-danger !{error_messages}
+        table.table.table-bordered.table-striped
+            if resources.length > 0
+                thead
+                    tr
+                        th Resource Hostname
+                        th Resource IP
+                        th Resource Type
+                        th Resource Description
+                        th Resource Owner
+                        th Settings
+                tbody
+                    each resource in resources
+                        tr
+                            td #{resource.resourceHostName}
+                            td #{resource.resourceIp}
+                            td #{resource.resourceType}
+                            td #{resource.resourceDescription}
+                            td #{resource.resourceOwner}
+                            td 
+                                if userType == 'user'
+                                    a(href='/resource/#{resource._id}', title='Click to Check Access')
+                                        span.glyphicon.glyphicon-edit
+                                if userType == 'admin'
+                                    a(href='/resource/#{resource._id}', title='Click to EDIT Resource')
+                                        span.glyphicon.glyphicon-edit                               
+                                    a(href='/deleteResource/#{resource._id}', title='Click to DELETE Resource')
+                                        span.glyphicon.glyphicon-remove
+            else
+                No Resources Data is not available
+    
+    

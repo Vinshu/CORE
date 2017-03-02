@@ -1,0 +1,36 @@
+
+// preset form values if we receive a userdata object //
+- resource = typeof(resourceData) != 'undefined' ? resourceData : { }
+// store the userId on the client side in a hidden input field //
+
+.content
+    .jumbotron.content-left
+        h2 Update Resource
+        form#updateResourceForm.form-horizontal(method='post', action='/resourceSave')
+            .form-group
+                label.col-lg-2.control-label Resource Hostname
+                .col-lg-6
+                    input.form-control(type='text', name='resourceHostName', value=resource.resourceHostName, disabled=true)
+                    input.form-control(type='hidden', name='resourceHostName', value=resource.resourceHostName)
+            .form-group
+                label.col-lg-2.control-label Resource IP
+                .col-lg-6
+                    input.form-control(type='text', name='resourceIp', value=resource.resourceIp)
+            .form-group
+                label.col-lg-2.control-label Resource Type
+                .col-lg-6
+                    input.form-control(type='text', name='resourceType', value=resource.resourceType)        
+            .form-group
+                label.col-lg-2.control-label Resource Description
+                .col-lg-6
+                    input.form-control(type='text', name='resourceDescription', value=resource.resourceDescription)
+            .form-group
+                label.col-lg-2.control-label Resource Owner
+                .col-lg-6
+                    input.form-control(type='text', name='resourceOwner', value=resource.resourceOwner)
+            
+            
+            .form-group
+                .col-lg-9.col-lg-offset-2
+                    button#resourceCancel.btn.btn-default(type='button') Cancel
+                    button.btn.btn-primary(type='submit', value='update') Update

@@ -1,0 +1,36 @@
+
+extends layout
+
+block content
+    nav.skin-blue-light.navbar.navbar-default.navbar-fixed-top
+        .container
+        .navbar-header
+            button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+            a(href='#')
+                img.fit(src='../images/logo.png')
+        #navbar.navbar-collapse.collapse
+            ul.nav.navbar-nav.header-left-text
+                li
+                    a(href="#") Update rule
+            ul.nav.navbar-nav.navbar-right
+                li
+                    a(href="/logout") Signout
+
+    .main-wrapper               
+        .left-menu.menuContent
+            include sidelayout.jade
+            
+        include editRuleInfo
+
+block scripts
+ script(src='/vendor/jquery-2.2.3.min.js')
+ script(src='/vendor/jquery.form.min.js')
+ script(src='/vendor/bootstrap.min.js')
+ script(src='/vendor/bootstrapValidator.js')
+ script(src='/js/views/scripts.js')
+ script(src='/js/views/editRule.js')
+ 

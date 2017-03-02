@@ -1,0 +1,96 @@
+ul.sidebar
+    li
+       span.side-text SELF SERVICE
+    li
+        a(href='/profile')
+            i.fa.fa-user
+            span  Profile
+    li
+        a(href='/credentials') 
+            i.fa.fa-shield
+            span Credentials
+    li
+       span.side-text ADMINISTRATION
+    li
+        if userType == 'admin'
+            a(href='/dashBoard') 
+                i.fa.fa-dashboard
+                span Dashboard
+    li
+        if userType == 'admin'
+            a(href="javascrip:void(0)") 
+                i.fa.fa-user
+                span Users
+            div
+                ul
+                    li
+                        a(href='/users') List users
+                    li
+                        a(href='/addUser') Add user
+                    li
+                        a(href='/validation') Verify
+    li
+        if userType == 'admin'
+            a(href="javascrip:void(0)")
+                i.fa.fa-television 
+                span Devices
+            div
+                ul
+                    li
+                        a(href='/devices') List devices
+                    li
+                        a(href='/addDevice') Add device
+    li
+        if userType == 'admin'
+            a(href="javascrip:void(0)")
+                i.fa.fa-database
+                span Resources
+            div
+                ul
+                    li
+                        a(href='/resources') List resources
+                    li
+                        a(href='/addResource') Add resource
+        if userType != 'admin'
+            a(href="javascrip:void(0)")
+                i.fa.fa-database
+                span Resources
+            div
+                ul
+                    li
+                        a(href='/resources') List resources
+    li
+        if userType == 'admin'
+            a(href="javascrip:void(0)") 
+                i.fa.fa-pencil 
+                span Policies
+            div
+                ul
+                    li
+                        a(href='/rules') List rules
+                    li
+                        a(href='/addRule') Add rule
+    li
+        if userType == 'admin'
+            a(href="javascrip:void(0)") 
+                i.fa.fa-pie-chart
+                span Reporting
+            div
+                ul
+                    li
+                        a(href='/logs') Access Log
+    li
+        if userType == 'admin'
+            a(href="javascrip:void(0)") 
+                i.fa.fa-cog 
+                span Configuration
+            div
+                ul
+                    li
+                        a(href='/ntp') NTP configuration
+                    li
+                        a(href='/backup') Backup configuration
+                    li
+                        a(href='/passPolicy') Password policy
+                    li
+                        a(href='/logging') Logging configuration

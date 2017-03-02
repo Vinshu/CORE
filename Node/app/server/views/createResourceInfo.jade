@@ -1,0 +1,34 @@
+
+// preset form values if we receive a userdata object //
+- user = typeof(udata) != 'undefined' ? udata : { }
+// store the userId on the client side in a hidden input field //
+input(type='hidden', value= user._id)#userId
+
+.content
+    .jumbotron.content-left
+        h3 Create Resource
+        form#createResourceForm.form-horizontal(method='post', action='/createResource')
+            .form-group
+                label.col-lg-2.control-label Resource Hostname
+                .col-lg-6
+                    input.form-control(type='text', name='resourceHostName')
+            .form-group
+                label.col-lg-2.control-label Resource IP
+                .col-lg-6
+                    input.form-control(type='text', name='resourceIp')
+            .form-group
+                label.col-lg-2.control-label Resource Type
+                .col-lg-6
+                    input.form-control(type='text', name='resourceType')                    
+            .form-group
+                label.col-lg-2.control-label Resource Description
+                .col-lg-6
+                    input.form-control(type='text', name='resourceDescription')
+            .form-group
+                label.col-lg-2.control-label Resource Owner
+                .col-lg-6
+                    input.form-control(type='text', name='resourceOwner')
+            
+            .form-group
+                .col-lg-9.col-lg-offset-2
+                    button.btn.btn-primary(type='submit', value='create') Create
